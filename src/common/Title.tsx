@@ -5,11 +5,17 @@ export interface ITitleProps {
   name?: string;
 }
 
+const TitleWrapper = ({ children, testId }: any) => (
+  <div data-test-id={testId}>
+    {children}
+  </div>
+);
+
 const Title = ({ title, name }: ITitleProps) => (
-  <>
-    <div>{title}</div>
-    <div>{name}</div>
-  </>
+  <TitleWrapper testId={title}>
+    <b>{title}</b>
+    <span>{name}</span>
+  </TitleWrapper>
 )
 
 export default Title;

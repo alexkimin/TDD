@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Title /> matches snapshot 1`] = `
+<Title
+  name="alex"
+  title="test"
+>
+  <TitleWrapper
+    testId="test"
+  >
+    <div
+      data-test-id="test"
+    >
+      <b>
+        test
+      </b>
+      <span>
+        alex
+      </span>
+    </div>
+  </TitleWrapper>
+</Title>
+`;
