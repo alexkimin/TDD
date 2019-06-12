@@ -16,6 +16,60 @@ exports[`<HookCounter /> matches snapshot 1`] = `
     >
       -1
     </button>
+    <div>
+      <b>
+        Fetch on click
+      </b>
+    </div>
+    <button
+      onClick={[Function]}
+    >
+      Fetch
+    </button>
+    <div />
+    <div>
+      <b>
+        Fetch on mount
+      </b>
+    </div>
+    <div />
+  </div>
+</HookCounter>
+`;
+
+exports[`<HookCounter /> matches snapshot 2`] = `
+<HookCounter>
+  <div>
+    <h2>
+      0
+    </h2>
+    <button
+      onClick={[Function]}
+    >
+      +1
+    </button>
+    <button
+      onClick={[Function]}
+    >
+      -1
+    </button>
+    <div>
+      <b>
+        Fetch on click
+      </b>
+    </div>
+    <button
+      onClick={[Function]}
+    >
+      Fetch
+    </button>
+    <div />
+    <div>
+      <b>
+        Fetch on mount
+      </b>
+    </div>
+    <div />
   </div>
 </HookCounter>
 `;

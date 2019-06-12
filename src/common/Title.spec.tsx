@@ -1,4 +1,5 @@
 import React from 'react';
+import { render, waitForElement } from '@testing-library/react';
 import { mount } from 'enzyme';
 import Title from './Title';
 
@@ -21,3 +22,27 @@ describe('<Title />', () => {
     expect((wrapperComponent.props() as any).testId).toBe('test');
   });
 });
+
+// react-testing-library
+describe('<Title />', () => {
+  it('matches snapshot', () => {
+    const utils = render(<Title title={'test'} name={'alex'} />);
+    expect(utils.container).toMatchSnapshot();
+  });
+  it('shows the props correctly', async () => {
+    const { getByText } = render(<Title title={'test'} name={'alex'} />);
+    await waitForElement(() => getByText('test'));
+    getByText('alex');
+  });
+});
+
+/*
+getByLabelText
+getByPlaceholderText
+getByText
+getByDisplayValue
+getByAltText
+getByTitle
+getByRole
+getByTestId
+*/

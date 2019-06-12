@@ -9,7 +9,7 @@ exports[`<Title /> matches snapshot 1`] = `
     testId="test"
   >
     <div
-      data-test-id="test"
+      data-testid="test"
     >
       <b>
         test
@@ -20,4 +20,19 @@ exports[`<Title /> matches snapshot 1`] = `
     </div>
   </TitleWrapper>
 </Title>
+`;
+
+exports[`<Title /> matches snapshot 2`] = `
+<div>
+  <div
+    data-testid="test"
+  >
+    <b>
+      test
+    </b>
+    <span>
+      alex
+    </span>
+  </div>
+</div>
 `;

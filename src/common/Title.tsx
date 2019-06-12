@@ -6,7 +6,7 @@ export interface ITitleProps {
 }
 
 const TitleWrapper = ({ children, testId }: any) => (
-  <div data-test-id={testId}>
+  <div data-testid={testId}>
     {children}
   </div>
 );
