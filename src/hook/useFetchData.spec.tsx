@@ -20,7 +20,7 @@ describe('useFetchData', () => {
     await waitForNextUpdate();
     expect(result.current.data).toEqual(res);
 
-    act(() => result.current.setData('hello'));
-    expect(result.current.data).toEqual('hello');
+    act(() => result.current.setData('hello!'));
+    expect(result.current.data).toEqual('hello!');
   });
 });
