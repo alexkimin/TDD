@@ -22,16 +22,11 @@ exports[`<HookCounter /> matches snapshot 1`] = `
       </b>
     </div>
     <button
+      data-testid="fetchButton"
       onClick={[Function]}
     >
-      Fetch
+      Wait...
     </button>
-    <div />
-    <div>
-      <b>
-        Fetch on mount
-      </b>
-    </div>
     <div />
   </div>
 </HookCounter>
@@ -59,16 +54,11 @@ exports[`<HookCounter /> matches snapshot 2`] = `
       </b>
     </div>
     <button
+      data-testid="fetchButton"
       onClick={[Function]}
     >
-      Fetch
+      Wait...
     </button>
-    <div />
-    <div>
-      <b>
-        Fetch on mount
-      </b>
-    </div>
     <div />
   </div>
 </HookCounter>

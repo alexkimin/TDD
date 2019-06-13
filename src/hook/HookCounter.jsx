@@ -1,12 +1,10 @@
-import React, { useState, useCallback } from "react";
-import { useFetchData, testApiCall } from "./useFetchData";
+import React, { useState, useCallback } from 'react';
+import { useFetchData } from './useFetchData';
 
-export const url = "https://randomuser.me/api/";
+export const url = 'https://randomuser.me/api/';
 
 const HookCounter = () => {
   const [number, setNumber] = useState(0);
-  const [fetchName, setFetchName] = useState("Fetch");
-  const [data, setData] = useState(undefined);
 
   const onIncrease = useCallback(() => {
     setNumber(number + 1);
@@ -15,11 +13,9 @@ const HookCounter = () => {
     setNumber(number - 1);
   }, [number]);
 
-  const onFetch = () => {
-    setData("Fetching...");
-    setFetchName("Wait");
-    testApiCall(url, setData, () => setFetchName("Fetch"));
-  };
+  const { data, fetcher, isPending } = useFetchData(url, {
+    onMount: true
+  });
 
   return (
     <div>
@@ -29,12 +25,10 @@ const HookCounter = () => {
       <div>
         <b>Fetch on click</b>
       </div>
-      <button onClick={onFetch}>{fetchName}</button>
+      <button onClick={fetcher} data-testid={'fetchButton'}>
+        {isPending ? 'Wait...' : 'Fetch!'}
+      </button>
       <div>{JSON.stringify(data)}</div>
-      <div>
-        <b>Fetch on mount</b>
-      </div>
-      <div>{JSON.stringify(useFetchData(url).data)}</div>
     </div>
   );
 };

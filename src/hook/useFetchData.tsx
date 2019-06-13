@@ -1,30 +1,30 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const testApiCall = (url: string, cb: any, pender?: any) =>
-  axios
-    .get(url)
-    .then((res: any) => {
-      cb(res.data);
-      typeof pender === "function" && pender();
-    })
-    .catch((_: any) => cb("API error!"));
-// const testApiCall = (url: string, cb: any, pender?: any) => axios.get(url)
-// .then((res: any) => setTimeout(() => {
-//   cb(res.data);
-//   typeof pender === 'function' && pender();
-// }, 500))
-// .catch((_: any) => setTimeout(() => cb('API error!'), 2000));
-
-const useFetchData = (url: string): any => {
+const useFetchData = (
+  url: string,
+  { onMount }: { onMount?: boolean } = {}
+): any => {
   const [data, setData] = useState<any>(undefined);
+  const [isPending, setPending] = useState(false);
+
+  const fetcher = ({
+    cb = setData,
+    method = 'get'
+  }: { cb?: any; method?: 'get' | 'post' } = {}) => {
+    setPending(true);
+    (axios as any)(url)
+      .then((res: any) => cb(res.data))
+      .catch((_: any) => cb('API error!'))
+      .finally(() => setPending(false));
+  };
 
   useEffect(() => {
-    testApiCall(url, setData);
+    onMount && fetcher();
     // eslint-disable-next-line
   }, []);
 
-  return { data };
+  return { data, setData, fetcher, isPending };
 };
 
-export { useFetchData, testApiCall };
+export { useFetchData };
