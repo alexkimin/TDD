@@ -4,18 +4,22 @@ import Title from './common/Title';
 import Counter from './class/Counter';
 import HookCounter from './hook/HookCounter';
 
+import { StoreProvider } from './store/store';
+
 export interface IAppProps {
   //
 }
 
 const App: React.FunctionComponent<IAppProps> = () => {
   return (
-    <div >
-      <Title title={'Testing'} name={'Alex'} />
-      <Counter />
-      <HookCounter />
-    </div>
+    <StoreProvider>
+      <div>
+        <Title title={'Testing'} name={'Alex'} />
+        <Counter />
+        <HookCounter />
+      </div>
+    </StoreProvider>
   );
-}
+};
 
 export default App;

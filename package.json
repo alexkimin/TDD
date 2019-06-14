@@ -60,6 +60,7 @@
     "react-dom": "^16.8.6",
     "react-hooks-testing-library": "^0.5.1",
     "react-testing-library": "^8.0.1",
+    "redux-act": "^1.7.6",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "semver": "6.0.0",
